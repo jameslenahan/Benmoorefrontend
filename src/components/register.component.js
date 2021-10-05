@@ -68,12 +68,14 @@ export default class Register extends Component {
 
   onChangeUsername(e) {
     this.setState({
-      username: e.target.value
+      username: e.target.value,
+      email: e.target.value
     });
   }
 
   onChangeEmail(e) {
     this.setState({
+      username: e.target.value,
       email: e.target.value
     });
   }
@@ -133,6 +135,7 @@ export default class Register extends Component {
   }
 
   render() {
+
     return (
       <div>
 
@@ -154,17 +157,17 @@ export default class Register extends Component {
           {!this.state.successful && (
             <div>
               <div className="field">
-                <label className="label"htmlFor="username">Username</label>
+                <label className="label"htmlFor="username"></label>
                 <div className="control">
 
-                <input
+                {/* <input
                   type="text"
                   className="input"
                   name="username"
                   value={this.state.username}
                   onChange={this.onChangeUsername}
                   validations={[required, vusername]}
-                />
+                /> */}
                 </div>
               </div>
       
@@ -174,7 +177,7 @@ export default class Register extends Component {
                   type="text"
                   className="form-control"
                   name="email"
-                  value={this.state.email}
+                  value={this.state.email, this.state.username}
                   onChange={this.onChangeEmail}
                   validations={[required, email]}
                 />
