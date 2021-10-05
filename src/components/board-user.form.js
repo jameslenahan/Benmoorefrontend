@@ -2,6 +2,7 @@ import React, {useEffect, useState, setState} from "react";
 import {useHistory, useLocation} from "react-router-dom";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ThankYouPage from './board-user.thankyou'
 
 const field1 = [""]
 const field2 = [""]
@@ -33,7 +34,8 @@ function ConsumerPage(){
        let field8name = ["Who will be ordering the paint?"]
        let userinfo = ""
 
-      let ThankYouPage = ""
+    
+      
    
    
    

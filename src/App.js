@@ -47,12 +47,12 @@ class App extends Component {
       <div>
      <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hello Bulma!</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
     <div>
         <meta charSet="utf-8" />
        <meta name="viewport" content="width=device-width, initial-scale=1" />
-       <title>Hello Bulma!</title>
+       <title></title>
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
         <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
