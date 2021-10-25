@@ -3,15 +3,16 @@ import {useHistory, useLocation} from "react-router-dom";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ThankYouPage from './board-user.thankyou'
+import axios from "axios";
 
-const field1 = [""]
-const field2 = [""]
-const field3 = [""]
-const field4 = [""]
-const field5 = [""]
-const field6 = [""]
-const field7 = [""]
-const field8 = [""]
+// const field1 = [""]
+// const field2 = [""]
+// const field3 = [""]
+// const field4 = [""]
+// const field5 = [""]
+// const field6 = [""]
+// const field7 = [""]
+// const field8 = [""]
 
 function ConsumerPage(){
        const [field1data, setfield1data] = useState("")
@@ -24,22 +25,24 @@ function ConsumerPage(){
        const [field8data, setfield8data] = useState("")
        const [page, setPage] = useState(0)
        
-       let field1name = ["Where is the project?"]
-       let field2name = ["What type of project is it?"]
+       let field1name = ["Location/Address"]
+       let field2name = ["Interior/Exterior?"]
        let field3name = ["When do you want the project to start?"]
-       let field4name = ["Brief description of project:" ]
-       let field5name = ["Is this an apartment or house?"]
+       let field4name = ["Brief description of project: (rooms & surfaces to be painted)" ]
+       let field5name = ["Drop"]
        let field6name = ["Preferred Paint"]
-       let field7name = ["Estimated square footage"]
-       let field8name = ["Who will be ordering the paint?"]
-       let userinfo = ""
+       let field7name = ["Drop"]
+       let field8name = ["Dropdown w/ I want to purchase paint or painter for me."]
+        
 
-    
+    // if they select they want to purchase their own paint, say you will receive a discounted price, will likely be ~12.5%. Contractors can get additional 10% less than that
+    // extra discount by painter might be $100 on a $1000 paint cost
       
    
    
-   
+   // aura, regal, ben, advanced, cabinet coat, satin & pervo
 
+   const API_URL = "https://bmp-backend-nodemysql.herokuapp.com/api/";
  
     
 
@@ -47,15 +50,23 @@ function ConsumerPage(){
 
 
        const pagedata = ({
-        "Where is the Project?": field1data,
-        "Type of Project": field2data,
+        "Location/Address": field1data,
+        "Interior/Exterior?": field2data,
         "When do you want the project to start?": field3data,
-        "Brief description of project?": field4data,
+        "Brief description of project? (rooms to be painted, as much detail as you can provide)": field4data,
         "Is this an apartment or house?": field5data,
         "Preferred Paint": field6data,
         "Estimated square footage?": field7data,
         "Who will be ordering the paint?": field8data
     }) 
+    function createProject() {
+        axios.post(API_URL + "project/create", {
+            location: field1data,
+            typeofproject: field2data,
+            timeline: field3data,
+            description: field4data
+        })
+    }
 
 
 
@@ -117,7 +128,7 @@ function ConsumerPage(){
                     <div className="control">
                     <input className="input" 
                     type="text" 
-                    placeholder="example" 
+                    placeholder="123 Example Street, Example Town 00000" 
                     value={page == 0 ? field1data : field5data}
                     onChange={page == 0 ? e => setfield1data(e.target.value) : e => setfield5data(e.target.value)}   
                     />
@@ -141,7 +152,7 @@ function ConsumerPage(){
                     <div className="control">
                     <input className="input" 
                     type="text" 
-                    placeholder="example" 
+                    placeholder="ASAP" 
                     value={page == 0 ? field3data : field7data}
                     onChange={page == 0 ? e => setfield3data(e.target.value) : e => setfield7data(e.target.value)}                   
                     />
@@ -152,7 +163,7 @@ function ConsumerPage(){
                     <div className="control">
                     <input className="input" 
                     type="text" 
-                    placeholder="example" 
+                    placeholder="Cabinets, trims, whole house." 
                     value={page == 0 ? field4data : field8data}
                     onChange={page == 0 ? e => setfield4data(e.target.value) : e => setfield8data(e.target.value)}/>
                     
@@ -186,7 +197,7 @@ function ConsumerPage(){
 
                 </form>
                 {page == 1 ? 
-                <a onClick={incrementpage}>
+                <a onClick={incrementpage, createProject}>
                     <button className="button is-primary">Submit Project</button>
                 </a>
                     : null}

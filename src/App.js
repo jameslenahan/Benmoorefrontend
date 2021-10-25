@@ -11,6 +11,7 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 import ConsumerPage from "./components/board-user.form"
+import ContractorHome from "./components/board-contractor.home"
 
 class App extends Component {
   constructor(props) {
@@ -168,6 +169,7 @@ class App extends Component {
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
+            <Route path="/contractorhome" component={ContractorHome} />
           </Switch>
         </div>
       </div>

@@ -133,6 +133,8 @@ export default class Register extends Component {
       );
     }
   }
+  // FOR CONTRACTORS
+  // name address, phone number, name, company name
 
   render() {
 

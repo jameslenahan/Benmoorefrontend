@@ -43,8 +43,13 @@ export default class Home extends Component {
           This tool helps our customers find trusted, local painters for their projects.
           </p>
           <Link to={"/form"}>
-            <a className="button is-large is-primary is-rounded is-outlined" style={{width: "10vw", marginTop: "10vh"}}> 
+            <a className="button is-large is-primary is-rounded is-outlined" style={{width: "10vw", marginTop: "10vh", fontSize: "100%"}}> 
             Find a Painter
+            </a>
+          </Link>
+          <Link to={"/contractorhome"}>
+            <a className="button is-large is-primary is-rounded is-outlined" style={{width: "10vw", marginTop: "10vh", fontSize: "100%"}}> 
+            Are you a Contractor?
             </a>
           </Link>
        
