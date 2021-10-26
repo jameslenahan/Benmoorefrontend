@@ -21,7 +21,6 @@ export default class ContractorHome extends Component {
 
       }
       )
-      return (response.data)
   }
   
   render() {
