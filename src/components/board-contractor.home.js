@@ -3,11 +3,7 @@ import AuthService from "../services/auth.service.js";
 import axios from "axios";
 
 const API_URL = "https://bmp-backend-nodemysql.herokuapp.com/api/";
-function fetchProjects() {
-  axios.get(API_URL + "projects").then((response) => {
-    console.log(response)
-  })
-}
+
 export default class ContractorHome extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +14,10 @@ export default class ContractorHome extends Component {
     };
   }
   componentDidMount() {
-    fetchProjects()
+
+      axios.get(API_URL + "projects").then((response) => {
+        console.log(response)
+      })
   }
   
   render() {
