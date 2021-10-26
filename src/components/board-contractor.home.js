@@ -49,7 +49,7 @@ export default class ContractorHome extends Component {
         <title>Thank You Page</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
             <div>
-            {response.data.map(el => {
+            {project.map(el => {
               
               return(
             
