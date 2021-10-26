@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service.js";
+import axios from "axios";
 
 const API_URL = "https://bmp-backend-nodemysql.herokuapp.com/api/";
 function fetchProjects() {
