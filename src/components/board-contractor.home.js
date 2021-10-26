@@ -16,7 +16,7 @@ export default class ContractorHome extends Component {
   componentDidMount() {
 
       axios.get(API_URL + "projects").then((response) => {
-        console.log(response)
+        console.log(response.data)
       })
   }
   
