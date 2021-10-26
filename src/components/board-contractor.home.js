@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AuthService from "../services/auth.service.js";
 import axios from "axios";
+import { response } from "express";
 
 const API_URL = "https://bmp-backend-nodemysql.herokuapp.com/api/";
 
@@ -16,14 +17,17 @@ export default class ContractorHome extends Component {
   componentDidMount() {
 
       axios.get(API_URL + "projects").then((response) => {
-        console.log(response.data)
-      })
+       console.log(response.data)
+
+      }
+      )
+      return (response.data)
   }
   
   render() {
 
 
-    const { currentUser } = this.state;
+   
     let project = [
         {
             name: "test",
@@ -45,7 +49,7 @@ export default class ContractorHome extends Component {
         <title>Thank You Page</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
             <div>
-            {project.map(el => {
+            {response.data.map(el => {
               
               return(
             
